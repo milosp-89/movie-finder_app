@@ -31,16 +31,16 @@ def main_page():
     sb1, sb2 = st.sidebar.columns(2)
     with sb1:
         st.sidebar.image('python_logo.png',
-                        width = 60)
+                        width = 50)
         st.sidebar.image('pandas_logo.png',
-                        width = 60)
+                        width = 50)
     with sb2:
         st.sidebar.image('plotly_logo.jpg',
-                        width = 60)
+                        width = 50)
         st.sidebar.image('streamlit_logo.png',
-                        width = 60)
+                        width = 50)
         st.sidebar.image('imdb_logo.png',
-                        width = 60)
+                        width = 50)
         st.sidebar.text(' ')
         st.sidebar.title("""
                         🎬 Movie Finder\n
