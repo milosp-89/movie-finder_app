@@ -3,6 +3,17 @@
 # libraries and modules:
 import streamlit as st, pandas as pd
 
+# setup page:
+def setup_page():
+    st.set_page_config(
+        page_title='Movie Finder:Movies',
+        page_icon='🎥',
+        layout='wide',
+        initial_sidebar_state='expanded'
+        )
+# calling function:
+setup_page()
+
 # function for setup of images:
 def images_setup():
    im1, im2, im3, im4, im5 = st.columns(5)
