@@ -11,6 +11,7 @@ def setup_page():
         layout='wide',
         initial_sidebar_state='expanded'
         )
+    
 # calling function:
 setup_page()
 
