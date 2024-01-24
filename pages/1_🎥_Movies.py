@@ -94,15 +94,17 @@ def slider(data, title, column):
                            data[column].min(),
                            data[column].max(),
                            (data[column].min(), data[column].max())))
+       
+       if object:
+          mask = (
+             data[column] >= object[0]) & (data[column] <= object[1])
+          filtered_df = data[mask]
+          data = filtered_df
+          return data
+           
    except:
-       st.warning('Entered value not present in a dataframe! Please delete the value and try again.', icon="⚠️")
-    
-   if object:
-      mask = (
-         data[column] >= object[0]) & (data[column] <= object[1])
-      filtered_df = data[mask]
-      data = filtered_df
-      return data
+   st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+              icon="⚠️")
    
 # function for single select:
 def single_select(data, title, column):
@@ -205,7 +207,8 @@ try:
         end_value = int(votes_search_end)
         df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
 except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.', icon="⚠️")
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+               icon="⚠️")
     
 st.sidebar.text(' ')
 
