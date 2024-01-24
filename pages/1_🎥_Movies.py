@@ -77,9 +77,7 @@ def load_data():
             'Rating', 'Rating category', 'Num of votes', 'Votes category', 'Genres', 'Genre 1',
             'Genre 2', 'Genre 3', 'Actor', 'Actress', 'Writer', 'Director', 'Producer', 'Editor', 'Composer',
             'Cinematographer']]
-
-   pd.set_option("styler.render.max_elements", 5926448)
-
+    
    return df
 
 # calling function:
@@ -200,10 +198,7 @@ df = search(df,
 # function to modify df:
 def mod_df():
    st.dataframe(
-      df.style.applymap(
-          lambda _: "background-color: CornflowerBlue;",
-          subset=([0],
-                  slice(None))),
+      df,
       column_config = {
          'Hyperlink':st.column_config.LinkColumn('Hyperlink'),
       },
