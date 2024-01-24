@@ -78,6 +78,8 @@ def load_data():
             'Genre 2', 'Genre 3', 'Actor', 'Actress', 'Writer', 'Director', 'Producer', 'Editor', 'Composer',
             'Cinematographer']]
 
+   pd.set_option("styler.render.max_elements", len(df))
+
    return df
 
 # calling function:
