@@ -88,13 +88,16 @@ df = load_data()
 
 # function for slider:
 def slider(data, title, column):
+   try:
    object = (
       st.sidebar.slider(f'{title}:',
                        data[column].min(),
                        data[column].max(),
                        (data[column].min(), data[column].max()))
             )
-   
+    except:
+        st.warning('Entered value not present in a dataframe!', icon="⚠️")
+        
    if object:
       mask = (
          data[column] >= object[0]) & (data[column] <= object[1])
