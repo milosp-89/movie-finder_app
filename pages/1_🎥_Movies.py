@@ -198,7 +198,7 @@ df = search(df,
 # function to modify df:
 def mod_df():
    st.dataframe(
-      df.head(5),
+      df.head(1000),
       column_config = {
          'Hyperlink':st.column_config.LinkColumn('Hyperlink'),
       },
