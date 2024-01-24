@@ -313,7 +313,7 @@ def charts4():
     # chart 8, tree map:
     with c2:
         treemap = px.treemap(dfm, 
-                 path=['* Run time category'],
+                 path=['Run time category'],
                  color_discrete_map='viridis')
 
         treemap.update_traces(
@@ -321,7 +321,7 @@ def charts4():
             hoverinfo="skip",
             textfont=dict(size=15))
 
-        st.header('Run time category tree map:')
+        st.header('* Run time category tree map:')
         st.plotly_chart(treemap,
                         theme='streamlit',
                         use_container_width=True)
