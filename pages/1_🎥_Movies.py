@@ -162,12 +162,9 @@ df = single_select(df,
 st.sidebar.text(' ')
 
 # director search/type filter:
-try:
-    df = search(df,
-                'Search by Director',
-                'Director')
-except ValueError:
-    st.warning('Specified Director is not in the list', icon="⚠️")
+df = search(df,
+            'Search by Director',
+            'Director')
 
 st.sidebar.text(' ')
 
@@ -199,10 +196,13 @@ votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
 
 votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
                                          df['Num of votes'].max())
-if votes_search_start and votes_search_end:
-    start_value = int(votes_search_start)
-    end_value = int(votes_search_end)
-    df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
+try:
+    if votes_search_start and votes_search_end:
+        start_value = int(votes_search_start)
+        end_value = int(votes_search_end)
+        df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
+except ValueError:
+    st.warning('This is a warning', icon="⚠️")
 
 st.sidebar.text(' ')
 
