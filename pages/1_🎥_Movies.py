@@ -88,11 +88,14 @@ df = load_data()
 
 # function for slider:
 def slider(data, title, column):
-   object = (
-      st.sidebar.slider(f'{title}:',
-                       data[column].min(),
-                       data[column].max(),
-                       (data[column].min(), data[column].max())))
+   try:
+       object = (
+          st.sidebar.slider(f'{title}:',
+                           data[column].min(),
+                           data[column].max(),
+                           (data[column].min(), data[column].max())))
+    except:
+        st.warning('Entered value not present in a dataframe!', icon="⚠️")
     
    if object:
       mask = (
@@ -149,13 +152,11 @@ df = single_select(df,
 st.sidebar.text(' ')
 
 # release date slider filter:
-try:
-    df = slider(df,
-                'Adjust Release date (Year) range',
-                'Release date')
-except:
-     st.warning('Entered value not present in a dataframe!', icon="⚠️")
-    
+
+df = slider(df,
+            'Adjust Release date (Year) range',
+            'Release date')
+
 # release data single select filter:
 df = single_select(df,
                    'Select Release date (Year)',
