@@ -116,7 +116,6 @@ def charts1():
             value = (
                 dfm[dfm['Genre 1'] != 'Unknown'].groupby(by = 'Genre 1')['Movie title'].count().idxmax()))
     st.title(' ')
-    st.title('- - - - - - - - - - -')
     
     # chart columns:
     col1, col2 = st.columns(2)
