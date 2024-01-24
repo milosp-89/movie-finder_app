@@ -127,6 +127,8 @@ def search(data, title, column):
 
 # filters:
 
+st.sidebar.text('- Genres section:')
+
 # genres search/type filter:
 df = search(df,
             'Search by Genres',
