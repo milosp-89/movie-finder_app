@@ -87,7 +87,7 @@ dfm = load_data()
 # sidebar:
 st.sidebar.header('☰ Filters')
 st.sidebar.text(' ')
-year = st.sidebar.selectbox("Please select **Release date**:",
+year = st.sidebar.selectbox("Please select **Release date** (Year):",
                             pd.unique(dfm['Release date'].sort_values(ascending = False)))
 dfm = dfm[dfm["Release date"] == year]
 
