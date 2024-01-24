@@ -162,9 +162,12 @@ df = single_select(df,
 st.sidebar.text(' ')
 
 # director search/type filter:
-df = search(df,
-            'Search by Director',
-            'Director')
+try:
+    df = search(df,
+                'Search by Director',
+                'Director')
+except:
+    st.warning('Specified Director is not in the list', icon="⚠️")
 
 st.sidebar.text(' ')
 
