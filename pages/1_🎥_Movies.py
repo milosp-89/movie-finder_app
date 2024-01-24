@@ -154,6 +154,11 @@ df = slider(df,
             'Adjust Number of votes range',
             'Num of votes')
 
+# votes category select filter:
+df = single_select(df,
+                   'Select Votes category',
+                   'Votes category')
+
 # filters for number of votes as start / end:
 votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
                                            df['Num of votes'].min())
@@ -164,11 +169,6 @@ if votes_search_start and votes_search_end:
     start_value = int(votes_search_start)
     end_value = int(votes_search_end)
     df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
-
-# votes category select filter:
-df = single_select(df,
-                   'Select Votes category',
-                   'Votes category')
 
 # genre1 single select filter:
 df = single_select(df,
