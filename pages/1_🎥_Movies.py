@@ -106,7 +106,8 @@ def slider(data, title, column):
 def single_select(data, title, column):
    object = (
       st.sidebar.selectbox(f'{title}:',
-                        list(data[column].sort_values(ascending=False).unique()), index=None))
+                        list(data[column].sort_values(ascending=False).unique()), index=None)
+            )
    
    if object is not None:
       mask = data[column] == object
@@ -124,6 +125,28 @@ def search(data, title, column):
          data = filtered_df
    return data
 
+# filters:
+
+# genres search/type filter:
+df = search(df,
+            'Search by Genres',
+            'Genres')
+
+# genre1 single select filter:
+df = single_select(df,
+                   'Select Genre 1',
+                   'Genre 1')
+
+# genre2 single select filter:
+df = single_select(df,
+                   'Select Genre 2',
+                   'Genre 2')
+
+# genre3 single select filter:
+df = single_select(df,
+                   'Select Genre 3',
+                   'Genre 3')
+
 # release date slider filter:
 df = slider(df,
             'Adjust Release date range',
@@ -134,10 +157,10 @@ df = single_select(df,
                    'Select Release date',
                    'Release date')
 
-# run time category single select filter:
-df = single_select(df,
-                   'Select Run time category',
-                   'Run time category')
+# director search/type filter:
+df = search(df,
+            'Search by Director',
+            'Director')
 
 # rating slider filter:
 df = slider(df,
@@ -170,30 +193,10 @@ if votes_search_start and votes_search_end:
     end_value = int(votes_search_end)
     df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
 
-# genre1 single select filter:
+# run time category single select filter:
 df = single_select(df,
-                   'Select Genre 1',
-                   'Genre 1')
-
-# genre2 single select filter:
-df = single_select(df,
-                   'Select Genre 2',
-                   'Genre 2')
-
-# genre3 single select filter:
-df = single_select(df,
-                   'Select Genre 3',
-                   'Genre 3')
-
-# genres search/type filter:
-df = search(df,
-            'Search by Genres',
-            'Genres')
-
-# director search/type filter:
-df = search(df,
-            'Search by Director',
-            'Director')
+                   'Select Run time category',
+                   'Run time category')
 
 # function to modify df:
 def mod_df():
