@@ -103,7 +103,7 @@ def slider(data, title, column):
           return data
            
    except:
-   st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+       st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
               icon="⚠️")
    
 # function for single select:
@@ -196,12 +196,13 @@ df = single_select(df,
                    'Votes category')
 
 # filters for number of votes as start / end:
-votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
-                                           df['Num of votes'].min())
-
-votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
-                                         df['Num of votes'].max())
 try:
+    votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
+                                               df['Num of votes'].min())
+    
+    votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
+                                             df['Num of votes'].max())
+    
     if votes_search_start and votes_search_end:
         start_value = int(votes_search_start)
         end_value = int(votes_search_end)
