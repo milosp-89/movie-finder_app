@@ -149,7 +149,7 @@ def charts1():
         hoverinfo = "skip")
     
     with col1:
-        st.header('Ratings category:')
+        st.header('* Ratings category:')
         st.plotly_chart(bar_ratings,
                         theme =  'streamlit',
                         use_container_width = True)
