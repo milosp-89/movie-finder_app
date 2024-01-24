@@ -45,7 +45,6 @@ page_sidebar()
 # function for dataframe:
 @st.cache_data
 def load_data():
-   bigdf.style.set_sticky(axis="index")
    files = ['movies_part1.csv',
             'movies_part2.csv',
             'movies_part3.csv',
@@ -73,6 +72,8 @@ def load_data():
    
    df['Votes category'] = (
       df['Votes category'].replace({'> 500,000 and row <= 1,000,000' : '> 500,000 and <= 1,000,000'}))
+
+   df.style.set_sticky(axis="Movie title")
     
    return df
 
