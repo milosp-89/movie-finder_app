@@ -116,6 +116,7 @@ def charts1():
             value = (
                 dfm[dfm['Genre 1'] != 'Unknown'].groupby(by = 'Genre 1')['Movie title'].count().idxmax()))
     st.title(' ')
+    st.title('- - - - - - - - - - -')
     
     # chart columns:
     col1, col2 = st.columns(2)
@@ -177,7 +178,7 @@ def charts1():
         yaxis_title="Count")
     
     with col2:
-        st.header('Top 3 Genres:')
+        st.header('* Top 3 Genres:')
         st.plotly_chart(bubble,
                         theme = 'streamlit',
                         use_container_width = True)
@@ -200,14 +201,14 @@ def charts2():
         hoverinfo = "skip")
 
     with c1:
-        st.header('Correlation between votes and ratings:')
+        st.header('* Correlation between votes and ratings:')
         st.plotly_chart(scatter,
                         theme =  'streamlit',
                         use_container_width = True)
         
     # chart 4 => table:
     with c2:
-        st.header('Top 5 shortest movies:')
+        st.header('* Top 5 shortest movies:')
         shortest = (
             dfm[(dfm['Rating'] > 7.0) 
             & (dfm['Num of votes'] > 10000)].sort_values(by='Run time(min)',
@@ -261,7 +262,7 @@ def charts3():
         
     # chart 6 table top movies:
     with cc2:
-        st.header('Top 10 movies:')
+        st.header('* Top 10 movies:')
         top_mov = dfm[(dfm['Rating'] > 7.0) 
                      & (dfm['Num of votes'] > 15000)].sort_values(by = 'Rating', ascending = False)[0:10]
 
@@ -286,7 +287,7 @@ def charts4():
 
     # chart 7, histogram votes category:
     with c1:
-         st.header('Votes category distribution:')
+         st.header('* Votes category distribution:')
          hist_votes = px.histogram(dfm[dfm['Votes category'] != '<=5000'], y="Votes category",
                                    color_discrete_sequence=['lightcyan'],
                                    text_auto=True).update_yaxes({'categoryorder':'array',
@@ -312,7 +313,7 @@ def charts4():
     # chart 8, tree map:
     with c2:
         treemap = px.treemap(dfm, 
-                 path=['Run time category'],
+                 path=['* Run time category'],
                  color_discrete_map='viridis')
 
         treemap.update_traces(
