@@ -201,7 +201,7 @@ def mod_df():
       df.style.applymap(
           lambda _: "background-color: CornflowerBlue;",
           subset=([0],
-                  slice(None)),
+                  slice(None))),
       column_config = {
          'Hyperlink':st.column_config.LinkColumn('Hyperlink'),
       },
