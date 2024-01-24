@@ -20,7 +20,7 @@ setup_page()
 # function for setup of images:
 def images_setup():
     st.image('analytics.png',
-             width = 500)
+             width = 450)
 
 # calling function:
 images_setup()
