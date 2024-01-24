@@ -147,20 +147,26 @@ df = single_select(df,
                    'Select Genre 3',
                    'Genre 3')
 
+st.sidebar.text(' ')
+
 # release date slider filter:
 df = slider(df,
-            'Adjust Release date range',
+            'Adjust Release date (Year) range',
             'Release date')
 
 # release data single select filter:
 df = single_select(df,
-                   'Select Release date',
+                   'Select Release date (Year)',
                    'Release date')
+
+st.sidebar.text(' ')
 
 # director search/type filter:
 df = search(df,
             'Search by Director',
             'Director')
+
+st.sidebar.text(' ')
 
 # rating slider filter:
 df = slider(df,
@@ -171,6 +177,8 @@ df = slider(df,
 df = single_select(df,
                    'Select Rating category',
                    'Rating category')
+
+st.sidebar.text(' ')
 
 # number of votes slider filter:
 df = slider(df,
@@ -192,6 +200,8 @@ if votes_search_start and votes_search_end:
     start_value = int(votes_search_start)
     end_value = int(votes_search_end)
     df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
+
+st.sidebar.text(' ')
 
 # run time category single select filter:
 df = single_select(df,
