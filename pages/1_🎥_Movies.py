@@ -94,8 +94,8 @@ def slider(data, title, column):
                            data[column].min(),
                            data[column].max(),
                            (data[column].min(), data[column].max())))
-    except:
-        st.warning('Entered value not present in a dataframe!', icon="⚠️")
+   except:
+       st.warning('Entered value not present in a dataframe!', icon="⚠️")
     
    if object:
       mask = (
