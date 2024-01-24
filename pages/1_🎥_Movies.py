@@ -150,10 +150,13 @@ df = single_select(df,
 st.sidebar.text(' ')
 
 # release date slider filter:
-df = slider(df,
-            'Adjust Release date (Year) range',
-            'Release date')
-
+try:
+    df = slider(df,
+                'Adjust Release date (Year) range',
+                'Release date')
+except KeyError:
+     st.warning('Entered value not present in a dataframe!', icon="⚠️")
+    
 # release data single select filter:
 df = single_select(df,
                    'Select Release date (Year)',
