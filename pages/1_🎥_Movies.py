@@ -95,7 +95,7 @@ def slider(data, title, column):
                            data[column].max(),
                            (data[column].min(), data[column].max())))
    except:
-       st.warning('Entered value not present in a dataframe!', icon="⚠️")
+       st.warning('Entered value not present in a dataframe! Please delete the value and try again.', icon="⚠️")
     
    if object:
       mask = (
@@ -205,8 +205,8 @@ try:
         end_value = int(votes_search_end)
         df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
 except:
-    st.warning('Entered value not present in a dataframe!', icon="⚠️")
-
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.', icon="⚠️")
+    
 st.sidebar.text(' ')
 
 # run time category single select filter:
