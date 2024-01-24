@@ -206,7 +206,7 @@ def charts2():
         
     # chart 4 => table:
     with c2:
-        st.header('Top 3 shortest movies:')
+        st.header('Top 5 shortest movies:')
         shortest = (
             dfm[(dfm['Rating'] > 7.0) 
             & (dfm['Num of votes'] > 10000)].sort_values(by='Run time(min)',
@@ -214,7 +214,7 @@ def charts2():
                                                                         'Run time(hh:mm)',
                                                                         'Rating',
                                                                         'Num of votes',
-                                                                        'Hyperlink']][0:3]
+                                                                        'Hyperlink']][0:5]
         )
         st.dataframe(
             shortest,
