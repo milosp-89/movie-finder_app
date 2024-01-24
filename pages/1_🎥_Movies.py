@@ -207,7 +207,7 @@ mod_df()
 
 # function for export data:
 def convert_df():
-    return df.to_csv(sep = ';',
+    return df.to_csv(sep = ',',
                     index = False,
                     decimal = ',')
 
