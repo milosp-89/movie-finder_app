@@ -166,7 +166,7 @@ try:
     df = search(df,
                 'Search by Director',
                 'Director')
-except:
+except ValueError:
     st.warning('Specified Director is not in the list', icon="⚠️")
 
 st.sidebar.text(' ')
