@@ -154,7 +154,7 @@ try:
     df = slider(df,
                 'Adjust Release date (Year) range',
                 'Release date')
-except KeyError:
+except:
      st.warning('Entered value not present in a dataframe!', icon="⚠️")
     
 # release data single select filter:
@@ -204,7 +204,7 @@ try:
         start_value = int(votes_search_start)
         end_value = int(votes_search_end)
         df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
-except ValueError:
+except:
     st.warning('Entered value not present in a dataframe!', icon="⚠️")
 
 st.sidebar.text(' ')
