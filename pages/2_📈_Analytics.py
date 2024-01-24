@@ -58,9 +58,9 @@ def load_data():
             astype(dtype = 'float64'))
    
    df.columns = ['Movie title', 'Release date', 'Run time(min)', 'Run time(hh:mm)', 'Run time category',
-                  'Rating', 'Rating category', 'Num of votes', 'Votes category', 'Genres', 'Genre 1',
-                  'Genre 2', 'Genre 3', 'Actor', 'Actress', 'Writer', 'Director', 'Producer', 'Editor', 'Composer',
-                  'Cinematographer', 'Hyperlink']
+                 'Rating', 'Rating category', 'Num of votes', 'Votes category', 'Genres', 'Genre 1', 'Genre 2',
+                 'Genre 3', 'Actor', 'Actress', 'Writer', 'Director', 'Producer', 'Editor', 'Composer',
+                 'Cinematographer', 'Hyperlink']
    
    cols_to_cat = ['Run time category',
                   'Rating category',
@@ -115,6 +115,7 @@ def charts1():
             label = 'Most present **GENRE** category 🔽:',
             value = (
                 dfm[dfm['Genre 1'] != 'Unknown'].groupby(by = 'Genre 1')['Movie title'].count().idxmax()))
+    st.title(' ')
     
     # chart columns:
     col1, col2 = st.columns(2)
