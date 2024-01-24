@@ -198,7 +198,10 @@ df = search(df,
 # function to modify df:
 def mod_df():
    st.dataframe(
-      df,
+      df.style.applymap(
+          lambda _: "background-color: CornflowerBlue;",
+          subset=([0],
+                  slice(None)),
       column_config = {
          'Hyperlink':st.column_config.LinkColumn('Hyperlink'),
       },
