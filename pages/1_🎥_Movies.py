@@ -74,8 +74,6 @@ def load_data():
    df['Votes category'] = (
       df['Votes category'].replace({'> 500,000 and row <= 1,000,000' : '> 500,000 and <= 1,000,000'}))
     
-   df.style.set_sticky(axis='Movie title')
-
    return df
 
 # calling function:
