@@ -202,7 +202,7 @@ try:
         end_value = int(votes_search_end)
         df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
 except ValueError:
-    st.warning('This is a warning', icon="⚠️")
+    st.warning('Director name not present in a dataframe!', icon="⚠️")
 
 st.sidebar.text(' ')
 
