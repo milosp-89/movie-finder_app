@@ -73,11 +73,6 @@ def load_data():
    df['Votes category'] = (
       df['Votes category'].replace({'> 500,000 and row <= 1,000,000' : '> 500,000 and <= 1,000,000'}))
 
-   df = df['Movie title', 'Hyperlink', 'Release date', 'Run time(min)', 'Run time(hh:mm)', 'Run time category',
-          'Rating', 'Rating category', 'Num of votes', 'Votes category', 'Genres', 'Genre 1',
-          'Genre 2', 'Genre 3', 'Actor', 'Actress', 'Writer', 'Director', 'Producer', 'Editor', 'Composer',
-          'Cinematographer']
-
    return df
 
 # calling function:
