@@ -127,13 +127,8 @@ def search(data, title, column):
          mask = data[column].apply(lambda x: object.lower() in str(x).lower())
          filtered_df = data[mask]
          data = filtered_df
-         if data.empty:
-             st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-              icon="⚠️")
-         else:
-             return data
-    return data
-       
+   return data
+ 
 #### filters:
 
 # genres search/type filter:
