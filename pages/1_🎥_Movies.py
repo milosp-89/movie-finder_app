@@ -108,33 +108,44 @@ def slider(data, title, column):
    
 # function for single select:
 def single_select(data, title, column):
-   object = (
-      st.sidebar.selectbox(f'{title}:',
-                        list(data[column].sort_values(ascending=False).unique()), index=None)
-            )
-   
-   if object is not None:
-      mask = data[column] == object
-      filtered_df = data[mask]
-      data = filtered_df
-   return data
-
+   try:
+       object = (
+          st.sidebar.selectbox(f'{title}:',
+                            list(data[column].sort_values(ascending=False).unique()), index=None)
+                )
+       
+       if object is not None:
+          mask = data[column] == object
+          filtered_df = data[mask]
+          data = filtered_df
+       return data
+   except:
+       st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
+       
 # function for search/find:
 def search(data, title, column):
-   object = (
-      st.sidebar.text_input(f'{title}:'))
-   if object is not None:
-         mask = data[column].apply(lambda x: object.lower() in str(x).lower())
-         filtered_df = data[mask]
-         data = filtered_df
-   return data
-
+   try:
+       object = (
+          st.sidebar.text_input(f'{title}:'))
+       if object is not None:
+             mask = data[column].apply(lambda x: object.lower() in str(x).lower())
+             filtered_df = data[mask]
+             data = filtered_df
+       return data
+    except:
+        st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 # filters:
 
 # genres search/type filter:
-df = search(df,
-            'Search by Genres',
-            'Genres')
+try:
+    df = search(df,
+                'Search by Genres',
+                'Genres')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 # genre1 single select filter:
 df = single_select(df,
@@ -163,40 +174,64 @@ except:
               icon="⚠️")
     
 # release data single select filter:
-df = single_select(df,
-                   'Select Release date (Year)',
-                   'Release date')
+try:
+    df = single_select(df,
+                       'Select Release date (Year)',
+                       'Release date')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 st.sidebar.text(' ')
 
 # director search/type filter:
-df = search(df,
-            'Search by Director',
-            'Director')
+try:
+    df = search(df,
+                'Search by Director',
+                'Director')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 st.sidebar.text(' ')
 
 # rating slider filter:
-df = slider(df,
-            'Adjust Rating range',
-            'Rating')
+try:
+    df = slider(df,
+                'Adjust Rating range',
+                'Rating')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 # rating single select filter:
-df = single_select(df,
-                   'Select Rating category',
-                   'Rating category')
+try:
+    df = single_select(df,
+                       'Select Rating category',
+                       'Rating category')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 st.sidebar.text(' ')
 
 # number of votes slider filter:
-df = slider(df,
-            'Adjust Number of votes range',
-            'Num of votes')
+try:
+    df = slider(df,
+                'Adjust Number of votes range',
+                'Num of votes')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 # votes category select filter:
-df = single_select(df,
-                   'Select Votes category',
-                   'Votes category')
+try:
+    df = single_select(df,
+                       'Select Votes category',
+                       'Votes category')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 # filters for number of votes as start / end:
 try:
@@ -217,9 +252,13 @@ except:
 st.sidebar.text(' ')
 
 # run time category single select filter:
-df = single_select(df,
-                   'Select Run time category',
-                   'Run time category')
+try:
+    df = single_select(df,
+                       'Select Run time category',
+                       'Run time category')
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+                  icon="⚠️")
 
 # function to modify df:
 def mod_df():
