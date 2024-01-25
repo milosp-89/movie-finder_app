@@ -104,6 +104,7 @@ def slider(data, title, column):
            
    except:
        st.warning('Entered value not present in a dataframe! Please delete the value and try again', icon="⚠️")
+       st.stop()
        
 # function for single select:
 def single_select(data, title, column):
@@ -207,6 +208,7 @@ try:
         df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
 except:
     st.warning('Entered value not present in a dataframe! Please delete the value and try again', icon="⚠️")
+    st.stop()
     
 st.sidebar.text(' ')
 
