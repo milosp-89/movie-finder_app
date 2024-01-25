@@ -127,7 +127,7 @@ def search(data, title, column):
          mask = data[column].apply(lambda x: object.lower() in str(x).lower())
          filtered_df = data[mask]
          data = filtered_df
-         return data
+   return data
        
 #### filters:
 
