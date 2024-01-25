@@ -128,9 +128,6 @@ def search(data, title, column):
          filtered_df = data[mask]
          data = filtered_df
          return data
-   else:
-       st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-              icon="⚠️")
        
 #### filters:
 
