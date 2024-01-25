@@ -195,17 +195,21 @@ df = single_select(df,
                    'Votes category')
 
 # filters for number of votes as start / end:
-votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
-                                           df['Num of votes'].min())
-
-votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
-                                         df['Num of votes'].max())
-
-if votes_search_start and votes_search_end:
-    start_value = int(votes_search_start)
-    end_value = int(votes_search_end)
-    df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
-
+try:
+    votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
+                                               df['Num of votes'].min())
+    
+    votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
+                                             df['Num of votes'].max())
+    
+    if votes_search_start and votes_search_end:
+        start_value = int(votes_search_start)
+        end_value = int(votes_search_end)
+        df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
+except:
+    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
+              icon="⚠️")
+    
 st.sidebar.text(' ')
 
 # run time category single select filter:
