@@ -139,13 +139,9 @@ def search(data, title, column):
 # filters:
 
 # genres search/type filter:
-try:
-    df = search(df,
-                'Search by Genres',
-                'Genres')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = search(df,
+            'Search by Genres',
+            'Genres')
 
 # genre1 single select filter:
 df = single_select(df,
@@ -165,100 +161,64 @@ df = single_select(df,
 st.sidebar.text(' ')
 
 # release date slider filter:
-try:
-    df = slider(df,
-                'Adjust Release date (Year) range',
-                'Release date')
-except:
-     st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-              icon="⚠️")
-    
+df = slider(df,
+            'Adjust Release date (Year) range',
+            'Release date')
+
 # release data single select filter:
-try:
-    df = single_select(df,
-                       'Select Release date (Year)',
-                       'Release date')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = single_select(df,
+                   'Select Release date (Year)',
+                   'Release date')
 
 st.sidebar.text(' ')
 
 # director search/type filter:
-try:
-    df = search(df,
-                'Search by Director',
-                'Director')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = search(df,
+            'Search by Director',
+            'Director')
 
 st.sidebar.text(' ')
 
 # rating slider filter:
-try:
-    df = slider(df,
-                'Adjust Rating range',
-                'Rating')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = slider(df,
+            'Adjust Rating range',
+            'Rating')
 
 # rating single select filter:
-try:
-    df = single_select(df,
-                       'Select Rating category',
-                       'Rating category')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = single_select(df,
+                   'Select Rating category',
+                   'Rating category')
 
 st.sidebar.text(' ')
 
 # number of votes slider filter:
-try:
-    df = slider(df,
-                'Adjust Number of votes range',
-                'Num of votes')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = slider(df,
+            'Adjust Number of votes range',
+            'Num of votes')
 
 # votes category select filter:
-try:
-    df = single_select(df,
-                       'Select Votes category',
-                       'Votes category')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = single_select(df,
+                   'Select Votes category',
+                   'Votes category')
 
 # filters for number of votes as start / end:
-try:
-    votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
-                                               df['Num of votes'].min())
-    
-    votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
-                                             df['Num of votes'].max())
-    
-    if votes_search_start and votes_search_end:
-        start_value = int(votes_search_start)
-        end_value = int(votes_search_end)
-        df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-               icon="⚠️")
-    
+votes_search_start = st.sidebar.text_input("Enter starting Vote value:",
+                                           df['Num of votes'].min())
+
+votes_search_end = st.sidebar.text_input("Enter ending Vote value:",
+                                         df['Num of votes'].max())
+
+if votes_search_start and votes_search_end:
+    start_value = int(votes_search_start)
+    end_value = int(votes_search_end)
+    df = df[(df['Num of votes'] >= start_value) & (df['Num of votes'] <= end_value)]
+
 st.sidebar.text(' ')
 
 # run time category single select filter:
-try:
-    df = single_select(df,
-                       'Select Run time category',
-                       'Run time category')
-except:
-    st.warning('Entered value not present in a dataframe! Please delete the value and try again.',
-                  icon="⚠️")
+df = single_select(df,
+                   'Select Run time category',
+                   'Run time category')
 
 # function to modify df:
 def mod_df():
