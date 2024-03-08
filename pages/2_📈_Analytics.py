@@ -220,7 +220,6 @@ def charts2():
         st.dataframe(
             shortest,
             column_config={
-                
                 "Hyperlink": st.column_config.LinkColumn("Hyperlink"),
             },
             hide_index=True,
