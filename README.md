@@ -1,10 +1,10 @@
 # Movie finder web application
 
 - About:
-  Web application constructed utilizing streamlit => https://streamlit.io/, an open source python framework
+  - Web application constructed utilizing streamlit => https://streamlit.io/, an open source python framework
 
 - Official website:
-  https://mfinder.streamlit.app/
+  - https://mfinder.streamlit.app/
 
 # Main page:
 ![main](https://github.com/milosp-89/movie-finder_app/assets/155644532/e582899e-1121-4802-be16-9b9b692b5912)
